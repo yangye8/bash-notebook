@@ -26,7 +26,7 @@ Table of Contents
 
 ### * Array
 
-### * Meta
+### * Q&A
 #### 1. bash中 <<< 和 <<的区别是什么
 [HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
 
@@ -113,6 +113,6 @@ Process substitution runs the commands, saves their output to a special temporar
 >>>逻辑运算： []为 -a -o ! [[ ]] 为&& || !  
 >>>数学运算： [] 不可以使用 [[ ]]可以使用+ - */ %  
 
-{}
+{ }
 * 大括号拓展。(通配(globbing))将对大括号中的文件名做扩展。在大括号中，不允许有空白  
 * 代码块，这个结构事实上创建了一个匿名函数 。与小括号中的命令不同，大括号内的命令不会新开一个子shell运行，即脚本余下部分仍可使用括号内变量。括号内的命令间用分号隔开，最后一个也必须有分号。{}的第一个命令和左括号之间必须要有一个空格 { cmd1;cmd2;cmd3;}
