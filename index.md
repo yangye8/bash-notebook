@@ -74,7 +74,7 @@ done < <(sort list1)
 Pipes and input redirects shove content onto the **STDIN stream**.  
 Process substitution runs the commands, saves their output to a special temporary file and then passes that file name in place of the command. Whatever command you are using treats it as a **file name**. Note that the file created is not a regular file but a named pipe that gets removed automatically once it is no longer needed.
 
-### 4. $0, $#, $*, $@, $?, $$
+#### 4. $0, $#, $*, $@, $?, $$
 | name  | mean |
 |-------|:---:|
 |$0 |	当前脚本的文件名|
@@ -87,7 +87,7 @@ Process substitution runs the commands, saves their output to a special temporar
 
 >当被双引号(" ")包含时，"$*" 会将所有的参数作为一个整体，以"$1 $2 … $n"的形式输出所有参数；"$@" 会将各个参数分开，以"$1\n" "$2\n" … "$n\n" 的形式输出所有参数
 
-### 5. ()、(())、[]、[[]]、{}
+#### 5. ()、(())、[]、[[]]、{}
 ()
 * 命令组。括号中的命令将会新开一个子shell顺序执行   
 * 用于初始化数组。如：array=(a b c d)
@@ -106,14 +106,13 @@ Process substitution runs the commands, saves their output to a special temporar
 * 支持字符串的模式匹配，使用=~操作符时甚至支持shell的正则表达式。字符串比较时可以把右边的作为一个模式，而不仅仅是一个字符串，比如[[ hello == hell? ]]，结果为真。[[ ]] 中匹配字符串或通配符，不需要引号。
 * 使用[[ ... ]]条件判断结构，而不是[ ... ]，能够防止脚本中的许多逻辑错误。比如，&&、||、<和> 操作符能够正常存在于[[ ]]条件判断结构中，但是如果出现在[ ]结构中的话，会报错。比如可以直接使用if [[ $a != 1 && $a != 2 ]], 如果不适用双括号, 则为if [ $a -ne 1] && [ $a != 2 ]或者if [ $a -ne 1 -a $a != 2 ]。
 * bash把双中括号中的表达式看作一个单独的元素，并返回一个退出状态码
-```shell
-数字运算： -eq -ne -lt -le -gt -ge，[[ ]]同 [ ]一致  
-文件运算： -r、-l、-w、-x、-f、-d、-s、-nt、-ot，[[ ]]同 [ ]一致  
-字符串 ： > < =(同==) != -n -z，不可使用“<=”和“>=”，[[ ]]同 [ ]一致，但在[]中，>和<必须使用\进行转义，即\>和\<  
-逻辑运算： []为 -a -o ! [[ ]] 为&& || !  
-数学运算： [] 不可以使用 [[ ]]可以使用+ - */ %  
-```  
 
+>>>数字运算： -eq -ne -lt -le -gt -ge，[[ ]]同 [ ]一致  
+>>>文件运算： -r、-l、-w、-x、-f、-d、-s、-nt、-ot，[[ ]]同 [ ]一致  
+>>>字符串 ： > < =(同==) != -n -z，不可使用“<=”和“>=”，[[ ]]同 [ ]一致，但在[]中，>和<必须使用\进行转义，即\>和\<  
+>>>逻辑运算： []为 -a -o ! [[ ]] 为&& || !  
+>>>数学运算： [] 不可以使用 [[ ]]可以使用+ - */ %  
+  
 { }
 * 大括号拓展。(通配(globbing))将对大括号中的文件名做扩展。在大括号中，不允许有空白  
 * 代码块，这个结构事实上创建了一个匿名函数 。与小括号中的命令不同，大括号内的命令不会新开一个子shell运行，即脚本余下部分仍可使用括号内变量。括号内的命令间用分号隔开，最后一个也必须有分号。{}的第一个命令和左括号之间必须要有一个空格 { cmd1;cmd2;cmd3;}
