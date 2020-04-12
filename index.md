@@ -28,10 +28,10 @@ Table of Contents
 
 ### * Meta
 #### 1. bash中 <<< 和 <<的区别是什么
->[HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
->
-><< 被称为 `here-document` 结构。 你可以让程序知道结束文本，并且每当看到该分隔符时，程序就会读取作为输入的任务。
->
+[HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
+
+<< 被称为 `here-document` 结构。 你可以让程序知道结束文本，并且每当看到该分隔符时，程序就会读取作为输入的任务。
+
 ```shell
 strace -e open,dup2,pipe,write -f bash -c 'cat <<EOF
 hello world
@@ -73,3 +73,14 @@ done < <(sort list1)
 #### 3. Process substitution and pipe
 Pipes and input redirects shove content onto the **STDIN stream**.  
 Process substitution runs the commands, saves their output to a special temporary file and then passes that file name in place of the command. Whatever command you are using treats it as a **file name**. Note that the file created is not a regular file but a named pipe that gets removed automatically once it is no longer needed.
+
+### 4. $0, $#, $*, $@, $?, $$
+| name  | mean |
+|-------|:---:|
+|$0 |	当前脚本的文件名
+|$n |	传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。
+|$# |	传递给脚本或函数的参数个数。
+|$* |	传递给脚本或函数的所有参数。
+|$@ |	传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
+|$? | 上个命令的退出状态，或函数的返回值。
+|$$ | 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
