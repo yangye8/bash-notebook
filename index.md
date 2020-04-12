@@ -32,7 +32,7 @@ One of the most common uses of this feature is to avoid the creation of temporar
 
 ```bash
 diff <(sort list1) <(sort list2)
-This is (roughly) equivalent to:
+#This is (roughly) equivalent to:
 
 mkfifo /var/tmp/fifo1
 mkfifo /var/tmp/fifo2
@@ -41,8 +41,11 @@ sort list2 >/var/tmp/fifo2 &
 diff /var/tmp/fifo1 /var/tmp/fifo2
 rm /var/tmp/fifo1 /var/tmp/fifo2
 ```
-Note that the diff command actually receives two **filename arguments**.  
-Another common use is avoiding the loss of variables inside a loop that is part of a pipeline. For example, this will fail:
+```bash
+    sh <(curl https://j.mp/spf13-vim3 -L)
+```
+the command actually receives **filename arguments**.  
+Another common use is avoiding the loss of variables inside a loop that is part of a pipeline. 
 
 ```bash
 i=0
