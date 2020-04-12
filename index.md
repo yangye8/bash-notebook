@@ -24,14 +24,14 @@ Table of Contents
 
 ## Bash notes
 
-### 1. Array
+### * Array
 
-### 2. Meta
+### * Meta
 #### 1. bash中 <<< 和 <<的区别是什么
-[HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
-
-<< 被称为 `here-document` 结构。 你可以让程序知道结束文本，并且每当看到该分隔符时，程序就会读取作为输入的任务。
-
+>[HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
+>
+><< 被称为 `here-document` 结构。 你可以让程序知道结束文本，并且每当看到该分隔符时，程序就会读取作为输入的任务。
+>
 ```shell
 strace -e open,dup2,pipe,write -f bash -c 'cat <<EOF
 hello world
