@@ -7,9 +7,9 @@ Table of Contents
    * [Bash notebook](#bash-notebook)
    * [Table of Contents](#table-of-contents)
       * [Bash guide](#bash-guide)
-                  * [* <a href="http://www.tldp.org/LDP/abs/html/" rel="nofollow">Advanced Bash-Scripting Guide</a>](#-advanced-bash-scripting-guide)
-                  * [* <a href="http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html" rel="nofollow">ubuntu manuals for bash</a>](#-ubuntu-manuals-for-bash)
-                  * [* <a href="https://github.com/google/styleguide/blob/gh-pages/docguide/style.md">markdown</a>](#-markdown)
+         * [<a href="http://www.tldp.org/LDP/abs/html/" rel="nofollow">Advanced Bash-Scripting Guide</a>](#advanced-bash-scripting-guide)
+         * [<a href="http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html" rel="nofollow">ubuntu manuals for bash</a>](#ubuntu-manuals-for-bash)
+         * [<a href="https://github.com/google/styleguide/blob/gh-pages/docguide/style.md">markdown</a>](#markdown)
       * [Bash notes](#bash-notes)
          * [* Array](#-array)
          * [* QA](#-qa)
@@ -18,6 +18,7 @@ Table of Contents
             * [3. Process substitution and pipe](#3-process-substitution-and-pipe)
             * [4. $0, $#, $*, $@, $?, $$](#4-0-----)
             * [5. ()、(())、[]、[[]]、{}](#5-)
+
 
 
 
