@@ -1,7 +1,18 @@
 # Bash notebook
   This records anything about bash language, tricky, notes when I learn and work with BASH.
 
-[TOC]
+Table of Contents
+=================
+
+   * [Bash notebook](#bash-notebook)
+      * [Bash guide](#bash-guide)
+      * [Bash notes](#bash-notes)
+         * [Array](#array)
+         * [Meta](#meta)
+            * [1. bash中 &lt;&lt;&lt; 和 &lt;&lt;的区别是什么](#1-bash中--和-的区别是什么)
+            * [2. bash中的 &lt;(some command) 进程替换](#2-bash中的-some-command-进程替换)
+            * [3. Process substitution and pipe](#3-process-substitution-and-pipe)
+
 
 ## Bash guide
 
