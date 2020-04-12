@@ -74,8 +74,8 @@ while read line; do
 done < <(sort list1)
 ```
 #### 3. Process substitution and pipe
-Pipes and input redirects shove content onto the **STDIN stream**.  
-Process substitution runs the commands, saves their output to a special temporary file and then passes that file name in place of the command. Whatever command you are using treats it as a **file name**. Note that the file created is not a regular file but a named pipe that gets removed automatically once it is no longer needed.
+* Pipes and input redirects shove content onto the **STDIN stream**.  
+* Process substitution runs the commands, saves their output to a special temporary file and then passes that file name in place of the command. Whatever command you are using treats it as a **file name**. Note that the file created is not a regular file but a named pipe that gets removed automatically once it is no longer needed.
 
 #### 4. $0, $#, $*, $@, $?, $$
 | name  | mean |
