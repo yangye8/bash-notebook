@@ -2,7 +2,7 @@
 
 1. [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/html/)  
 2. [ubuntu manuals for bash](http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html)
-3. [ProcessSubstitution](http://mywiki.wooledge.org/ProcessSubstitution)  
+ 
 
 # Bash notes
 
@@ -10,6 +10,7 @@
 
 ## Meta
 ### 1. bash中 <<< 和 <<的区别是什么
+[HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
 
 << 被称为 `here-document` 结构。 你可以让程序知道结束文本，并且每当看到该分隔符时，程序就会读取作为输入的任务。
 
@@ -24,8 +25,9 @@ EOF'
 bc <<< "1+2"
 ```
 
-### 2. bash <(some command) 进程替换
->Process substitution comes in two forms: <(some command) and >(some command). Each form either causes a FIFO to be created under /tmp or /var/tmp, or uses a named file descriptor (/dev/fd/*), depending on the operating system. The substitution syntax is replaced by the name of the FIFO or FD, and the command inside it is run in the background. The substitution is performed at the same time as parameter expansion and command substitution.
+### 2. bash中的 <(some command) 进程替换
+[ProcessSubstitution](http://mywiki.wooledge.org/ProcessSubstitution) 
+>Process substitution comes in two forms: <(some command) and >(some command). Each form either causes a FIFO to be created under /tmp or /var/tmp, or uses a named file descriptor (/dev/fd/*), depending on the operating system. The substitution syntax is replaced by the name of the FIFO or FD, and the command inside it is run in the background. The substitution is performed at the same time as parameter expansion and command substitution.  
 One of the most common uses of this feature is to avoid the creation of temporary files, e.g. when using diff(1):
 
 ```bash
@@ -39,4 +41,14 @@ sort list2 >/var/tmp/fifo2 &
 diff /var/tmp/fifo1 /var/tmp/fifo2
 rm /var/tmp/fifo1 /var/tmp/fifo2
 ```
-Note that the diff command actually receives two **filename arguments**.
+Note that the diff command actually receives two **filename arguments**.  
+Another common use is avoiding the loss of variables inside a loop that is part of a pipeline. For example, this will fail:
+
+```bash
+i=0
+while read line; do
+  ((i++))
+  ...
+done < <(sort list1)
+```
+
