@@ -19,9 +19,9 @@ Table of Contents
 
 ## Bash guide
 
-### * [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/html/)  
-### * [ubuntu manuals for bash](http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html)  
-### * [markdown](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
+#### * [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/html/)  
+#### * [ubuntu manuals for bash](http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html)  
+#### * [markdown](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)
  
 ------
 
