@@ -1,7 +1,7 @@
-#Bash guide
+# Bash guide
 
-http://www.tldp.org/LDP/abs/html/
-http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html
+[Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/html/)
+[ubuntu manuals for bash](http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html)
 
 - Bulleted
 - List
