@@ -24,6 +24,19 @@ EOF'
 bc <<< "1+2"
 ```
 
-### 2. bash <(some command) and >(some command)? 
-进程替换
+### 2. bash <(some command) 进程替换
+>Process substitution comes in two forms: <(some command) and >(some command). Each form either causes a FIFO to be created under /tmp or /var/tmp, or uses a named file descriptor (/dev/fd/*), depending on the operating system. The substitution syntax is replaced by the name of the FIFO or FD, and the command inside it is run in the background. The substitution is performed at the same time as parameter expansion and command substitution.
+One of the most common uses of this feature is to avoid the creation of temporary files, e.g. when using diff(1):
 
+```bash
+diff <(sort list1) <(sort list2)
+This is (roughly) equivalent to:
+
+mkfifo /var/tmp/fifo1
+mkfifo /var/tmp/fifo2
+sort list1 >/var/tmp/fifo1 &
+sort list2 >/var/tmp/fifo2 &
+diff /var/tmp/fifo1 /var/tmp/fifo2
+rm /var/tmp/fifo1 /var/tmp/fifo2
+```
+Note that the diff command actually receives two **filename arguments**.
