@@ -5,13 +5,16 @@ Table of Contents
 =================
 
    * [Bash notebook](#bash-notebook)
+   * [Table of Contents](#table-of-contents)
       * [Bash guide](#bash-guide)
       * [Bash notes](#bash-notes)
-         * [Array](#array)
-         * [Meta](#meta)
+         * [* Array](#-array)
+         * [* QA](#-qa)
             * [1. bash中 &lt;&lt;&lt; 和 &lt;&lt;的区别是什么](#1-bash中--和-的区别是什么)
             * [2. bash中的 &lt;(some command) 进程替换](#2-bash中的-some-command-进程替换)
             * [3. Process substitution and pipe](#3-process-substitution-and-pipe)
+            * [4. $0, $#, $*, $@, $?, $$](#4-0-----)
+            * [5. ()、(())、[]、[[]]、{}](#5-)
 
 
 ## Bash guide
