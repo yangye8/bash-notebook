@@ -31,15 +31,15 @@ bc <<< "1+2"
 One of the most common uses of this feature is to avoid the creation of temporary files, e.g. when using diff(1):
 
 ```bash
-diff <(sort list1) <(sort list2)
-#This is (roughly) equivalent to:
+    diff <(sort list1) <(sort list2)
+    #This is (roughly) equivalent to:
 
-mkfifo /var/tmp/fifo1
-mkfifo /var/tmp/fifo2
-sort list1 >/var/tmp/fifo1 &
-sort list2 >/var/tmp/fifo2 &
-diff /var/tmp/fifo1 /var/tmp/fifo2
-rm /var/tmp/fifo1 /var/tmp/fifo2
+    mkfifo /var/tmp/fifo1
+    mkfifo /var/tmp/fifo2
+    sort list1 >/var/tmp/fifo1 &
+    sort list2 >/var/tmp/fifo2 &
+    diff /var/tmp/fifo1 /var/tmp/fifo2
+    rm /var/tmp/fifo1 /var/tmp/fifo2
 ```
 ```bash
     sh <(curl https://j.mp/spf13-vim3 -L)
@@ -48,10 +48,13 @@ the command actually receives **filename arguments**.
 Another common use is avoiding the loss of variables inside a loop that is part of a pipeline. 
 
 ```bash
-i=0
-while read line; do
-  ((i++))
-  ...
-done < <(sort list1)
+    i=0
+    while read line; do
+      ((i++))
+      ...
+    done < <(sort list1)
 ```
 
+### 3. Process substitution and pipe
+Pipes and input redirects shove content onto the STDIN stream.  
+Process substitution runs the commands, saves their output to a special temporary file and then passes that file name in place of the command. Whatever command you are using treats it as a file name. Note that the file created is not a regular file but a named pipe that gets removed automatically once it is no longer needed.
