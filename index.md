@@ -33,7 +33,14 @@ Table of Contents
 
 <!-- CHAPTER START -->
 ### * Trap
-
+The trap command with no arguments shall write to standard output
+```shell
+    trap -- <action>, <condition>
+```
+If ARG is absent (and a single SIGNAL_SPEC is supplied) or `-`, each specified signal is *reset* to its original value.
+```shell
+    trap - <action>, <condition>
+```
 <!-- CHAPTER END -->
 
 <!-- CHAPTER START -->
