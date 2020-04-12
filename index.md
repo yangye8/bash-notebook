@@ -27,7 +27,7 @@ Table of Contents
 ### 1. Array
 
 ### 2. Meta
-    #### 1. bash中 <<< 和 <<的区别是什么
+#### 1. bash中 <<< 和 <<的区别是什么
     [HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
 
     << 被称为 `here-document` 结构。 你可以让程序知道结束文本，并且每当看到该分隔符时，程序就会读取作为输入的任务。
@@ -42,8 +42,7 @@ Table of Contents
     ```shell
     bc <<< "1+2"
     ```
-
-    #### 2. bash中的 <(some command) 进程替换
+#### 2. bash中的 <(some command) 进程替换
     [ProcessSubstitution](http://mywiki.wooledge.org/ProcessSubstitution) 
     >Process substitution comes in two forms: <(some command) and >(some command). Each form either causes a FIFO to be created under /tmp or /var/tmp, or uses a named file descriptor (/dev/fd/*), depending on the operating system. The substitution syntax is replaced by the name of the FIFO or FD, and the command inside it is run in the background. The substitution is performed at the same time as parameter expansion and command substitution.  
     One of the most common uses of this feature is to avoid the creation of temporary files, e.g. when using diff(1):
@@ -72,7 +71,6 @@ Table of Contents
           ...
         done < <(sort list1)
     ```
-
-    #### 3. Process substitution and pipe
+#### 3. Process substitution and pipe
     Pipes and input redirects shove content onto the **STDIN stream**.  
     Process substitution runs the commands, saves their output to a special temporary file and then passes that file name in place of the command. Whatever command you are using treats it as a **file name**. Note that the file created is not a regular file but a named pipe that gets removed automatically once it is no longer needed.
