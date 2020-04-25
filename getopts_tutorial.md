@@ -43,6 +43,35 @@ $5: positional
 $6: parameters
 ```
 
+``` shell
+$ set -- "arg  1" "arg  2" "arg  3"
+
+$ for word in $*; do echo "$word"; done
+arg
+1
+arg
+2
+arg
+3
+
+$ for word in $@; do echo "$word"; done
+arg
+1
+arg
+2
+arg
+3
+
+$ for word in "$*"; do echo "$word"; done
+arg  1 arg  2 arg  3
+
+$ for word in "$@"; do echo "$word"; done
+arg  1
+arg  2
+arg  3
+```
+
+
 ## $0
 
 `$0` 用于表示执行脚本的名字
