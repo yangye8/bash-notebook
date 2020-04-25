@@ -8,6 +8,8 @@
 
 [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/html/)  
 [ubuntu manuals for bash](http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html)  
+[The bash shell](https://www.computerhope.com/unix/ubash.htm)
+
 [markdown](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)  
  
 ------
@@ -142,4 +144,18 @@ done < <(sort list1)
 
 * 大括号拓展。（通配 (globbing)) 将对大括号中的文件名做扩展。在大括号中，不允许有空白  
 * 代码块，这个结构事实上创建了一个匿名函数 。与小括号中的命令不同，大括号内的命令不会新开一个子 shell 运行，即脚本余下部分仍可使用括号内变量。括号内的命令间用分号隔开，最后一个也必须有分号。{}的第一个命令和左括号之间必须要有一个空格 { cmd1;cmd2;cmd3;}
+
+#### 6. difference in ">" and ">&"
+`>`  means redirect output to a file.
+
+`>&` means redirect output to another file descriptor
+
+shell中描述符一共有12个
+
+0  代表标准输入
+1  代表标准输出
+2  错误输出
+其他 3-9 都是空白描述符
+
+#### 7. 
 <!-- CHAPTER END -->
