@@ -143,7 +143,7 @@ done
 ``` shell
 while [[ "$1" ]]
 do
-    echo $i
+    echo $1
     shift
 done
 ```
