@@ -1,10 +1,52 @@
-# BASH NOTEBOOK
+<!-- TOC -->
+
+- [BASH NOTEBOOK](#1-BASHNOTEBOOK)
+    - [Bash command](#11-Bashcommand)
+    - [Bash guide](#12-Bashguide)
+    - [Bash notes](#13-Bashnotes)
+        - [* Array](#131-*Array)
+        - [* Trap](#132-*Trap)
+        - [* QA](#133-*QA)
+            - [bash 中 <<< 和 <<的区别是什么](#1331-bash中<<<和<<的区别是什么)
+            - [bash 中的 <(some command) 进程替换](#1332-bash中的<(somecommand)进程替换)
+            - [Process substitution and pipe](#1333-Processsubstitutionandpipe)
+            - [$0, $#, $*, $@, $?, $$](#1334-$0,$#,$*,$@,$?,$$)
+            - [()、(())、[]、[[]]、{}](#1335-()、(())、[]、[[]]、{})
+            - [difference in ">" and ">&"](#1336-differencein">"and">&")
+            - [.](#1337-.)
+
+<!-- /TOC -->
+
+
+
+
+
+
+<a id="toc_anchor" name="#1-BASHNOTEBOOK"></a>
+
+# 1. BASH NOTEBOOK
 
   This records anything about bash language, tricky, notes when I learn and work with BASH.
 
 [TOC]
 
-## Bash guide
+<a id="toc_anchor" name="#11-Bashcommand"></a>
+
+## 1.1. Bash command
+
+**ctrl-w** to delete the last word
+**ctrl-u** to delete the content from current cursor back to the start of the line  
+**ctrl-k** to delete to the end of the line  
+
+**ctrl-a** to move cursor to beginning of line  
+**ctrl-e** to move cursor to end of line  
+
+**ctrl-l** to clear the screen.  
+**alt-b and alt-f** to move by word  
+
+<a id="toc_anchor" name="#12-Bashguide"></a>
+
+## 1.2. Bash guide
 
 [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/html/)  
 [ubuntu manuals for bash](http://manpages.ubuntu.com/manpages/eoan/en/man1/bash.1.html)  
@@ -12,17 +54,23 @@
 [bash-hackers](https://wiki.bash-hackers.org/)
 
 [markdown](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)  
- 
+
 ------
 
-## Bash notes
+<a id="toc_anchor" name="#13-Bashnotes"></a>
+
+## 1.3. Bash notes
 <!-- CHAPTER START -->
-### * Array
+<a id="toc_anchor" name="#131-*Array"></a>
+
+### 1.3.1. * Array
 
 <!-- CHAPTER END -->
 
 <!-- CHAPTER START -->
-### * Trap
+<a id="toc_anchor" name="#132-*Trap"></a>
+
+### 1.3.2. * Trap
 
 The trap command with no arguments shall write to standard output
 
@@ -38,9 +86,13 @@ If ARG is absent (and a single SIGNAL_SPEC is supplied) or `-`, each specified s
 <!-- CHAPTER END -->
 
 <!-- CHAPTER START -->
-### * QA
+<a id="toc_anchor" name="#133-*QA"></a>
 
-#### 1. bash 中 <<< 和 <<的区别是什么
+### 1.3.3. * QA
+
+<a id="toc_anchor" name="#1331-bash中<<<和<<的区别是什么"></a>
+
+#### 1.3.3.1. bash 中 <<< 和 <<的区别是什么
 
 [HereDocument](http://mywiki.wooledge.org/HereDocument?action=show&redirect=HereString)
 
@@ -58,7 +110,9 @@ EOF'
 bc <<< "1+2"
 ```
 
-#### 2. bash 中的 <(some command) 进程替换
+<a id="toc_anchor" name="#1332-bash中的<(somecommand)进程替换"></a>
+
+#### 1.3.3.2. bash 中的 <(some command) 进程替换
 
 [ProcessSubstitution](http://mywiki.wooledge.org/ProcessSubstitution) 
 >Process substitution comes in two forms: <(some command) and >(some command). Each form either causes a FIFO to be created under /tmp or /var/tmp, or uses a named file descriptor (/dev/fd/*), depending on the operating system. The substitution syntax is replaced by the name of the FIFO or FD, and the command inside it is run in the background. The substitution is performed at the same time as parameter expansion and command substitution.  
@@ -91,12 +145,16 @@ while read line; do
 done < <(sort list1)
 ```
 
-#### 3. Process substitution and pipe
+<a id="toc_anchor" name="#1333-Processsubstitutionandpipe"></a>
+
+#### 1.3.3.3. Process substitution and pipe
 
 * Pipes and input redirects shove content onto the **STDIN stream**.  
 * Process substitution runs the commands, saves their output to a special temporary file and then passes that file name in place of the command. Whatever command you are using treats it as a **file name**. Note that the file created is not a regular file but a named pipe that gets removed automatically once it is no longer needed.
 
-#### 4. $0, $#, $*, $@, $?, $$
+<a id="toc_anchor" name="#1334-$0,$#,$*,$@,$?,$$"></a>
+
+#### 1.3.3.4. $0, $#, $*, $@, $?, $$
 
 | name  | mean |
 |-------|:---:|
@@ -110,7 +168,9 @@ done < <(sort list1)
 
 >当被双引号 (" ") 包含时，"$*" 会将所有的参数作为一个整体，以"$1 $2 … $n"的形式输出所有参数；"$@" 会将各个参数分开，以"$1\n" "$2\n" … "$n\n" 的形式输出所有参数
 
-#### 5. ()、(())、[]、[[]]、{}
+<a id="toc_anchor" name="#1335-()、(())、[]、[[]]、{}"></a>
+
+#### 1.3.3.5. ()、(())、[]、[[]]、{}
 
 ()
 
@@ -140,13 +200,15 @@ done < <(sort list1)
 >>>字符串 ： > < =（同==) != -n -z，不可使用"<="和">="，[[ ]] 同 [ ] 一致，但在 [] 中，>和<必须使用、进行转义，即、>和、<  
 >>>逻辑运算： [] 为 -a -o ! [[ ]] 为&& || !  
 >>>数学运算： [] 不可以使用 [[ ]] 可以使用+ - */ %  
-  
+
 { }
 
 * 大括号拓展。（通配 (globbing)) 将对大括号中的文件名做扩展。在大括号中，不允许有空白  
 * 代码块，这个结构事实上创建了一个匿名函数 。与小括号中的命令不同，大括号内的命令不会新开一个子 shell 运行，即脚本余下部分仍可使用括号内变量。括号内的命令间用分号隔开，最后一个也必须有分号。{}的第一个命令和左括号之间必须要有一个空格 { cmd1;cmd2;cmd3;}
 
-#### 6. difference in ">" and ">&"
+<a id="toc_anchor" name="#1336-differencein">"and">&""></a>
+
+#### 1.3.3.6. difference in ">" and ">&"
 `>`  means redirect output to a file.
 
 `>&` means redirect output to another file descriptor
@@ -158,5 +220,7 @@ shell中描述符一共有12个
 2  错误输出
 其他 3-9 都是空白描述符
 
-#### 7. 
+<a id="toc_anchor" name="#1337-."></a>
+
+#### 1.3.3.7. .
 <!-- CHAPTER END -->
